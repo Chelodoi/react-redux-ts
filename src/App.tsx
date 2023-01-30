@@ -1,14 +1,26 @@
-import React, { FC } from 'react';
-import { Provider } from 'react-redux';
-import TodoList from './components/TodoList';
-import UserList from './components/UserList';
-import { store } from './store';
+import React, { FC, useEffect } from 'react';
+import PostList from './components/PostList';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { fetchUsers } from './store/reducers/ActionCreator';
+import { userSlice } from './store/reducers/UserSlice';
 
 export const App: FC = () => {
+  // const { users, isLoading, count, error } = useAppSelector((state) => state.userReducer);
+  // const { increment } = userSlice.actions;
+  // const dispatch = useAppDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchUsers());
+  // }, []);
+
   return (
-    <Provider store={store}>
-      <UserList />
-      <TodoList />
-    </Provider>
+    <div>
+      {/* <h1>{count}</h1>
+      <button onClick={() => dispatch(increment(1))}>increment</button> */}
+      {/* {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {JSON.stringify(users, null, 2)}*/}
+      <PostList />
+    </div>
   );
 };
